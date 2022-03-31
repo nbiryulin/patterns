@@ -5,6 +5,6 @@ import java.io.OutputStream;
 
 public interface Adapter {
 
-  void charsToBytes(String[] strings, OutputStream outputStream) throws IOException;
+  OutputStream charsToBytes(String[] strings, OutputStream outputStream) throws IOException;
 
 }
