@@ -31,7 +31,7 @@ public class Square implements DrawableShape {
         }
         square.closePath();
 
-        g2d.setColor(Color.BLUE);
+        g2d.setColor(Color.BLACK);
         g2d.fill(square);
     }
 

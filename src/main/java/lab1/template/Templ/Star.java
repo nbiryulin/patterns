@@ -30,7 +30,7 @@ public class Star implements DrawableShape {
         }
         star.closePath();
 
-        g2d.setColor(Color.YELLOW);
+        g2d.setColor(Color.PINK);
         g2d.fill(star);
     }
 

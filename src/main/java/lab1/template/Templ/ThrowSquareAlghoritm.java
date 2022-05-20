@@ -3,9 +3,9 @@ package lab1.template.Templ;
 
 
 
-public class ThrowSquare extends ThrowShapeAlgorithm {
+public class ThrowSquareAlghoritm extends ThrowAlgorithm {
 
-    public ThrowSquare(DynamicPaintingPanel panel) {
+    public ThrowSquareAlghoritm(DynamicPaintingPanel panel) {
         super(panel);
     }
 

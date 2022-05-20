@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public abstract class AbstractStrategy implements Strategy {
     @Override
-    public void checkAverageStudent(String inputNameFile, String outputNameFile) throws Exception {
+    public void execute(String inputNameFile, String outputNameFile) throws Exception {
         Student student = readFile(inputNameFile);
         student.checkAverage();
         writeFile(outputNameFile, student);

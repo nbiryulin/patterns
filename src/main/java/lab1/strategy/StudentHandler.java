@@ -15,18 +15,18 @@ public class StudentHandler extends DefaultHandler {
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
 
-        if (qName.equalsIgnoreCase("student")) {
+        if (qName.equalsIgnoreCase(StrategyUtils.STUDENT)) {
             student = new Student();
-            student.setLastName(attributes.getValue("lastname"));
+            student.setLastName(attributes.getValue(StrategyUtils.LASTNAME));
 
             return;
         }
 
-        if (qName.equalsIgnoreCase("subject")) {
+        if (qName.equalsIgnoreCase(StrategyUtils.SUBJECT)) {
             Subject subject = new Subject();
-            subject.setSubjectName(attributes.getValue("title"));
+            subject.setSubjectName(attributes.getValue(StrategyUtils.TITLE));
             try {
-                subject.setMark(Integer.parseInt(attributes.getValue("mark")));
+                subject.setMark(Integer.parseInt(attributes.getValue(StrategyUtils.MARK)));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -36,7 +36,7 @@ public class StudentHandler extends DefaultHandler {
             return;
         }
 
-        if (qName.equalsIgnoreCase("average")) {
+        if (qName.equalsIgnoreCase(StrategyUtils.AVERAGE)) {
             isAverage = true;
         }
     }

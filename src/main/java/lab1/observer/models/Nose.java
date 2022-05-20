@@ -4,9 +4,9 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import lab1.observer.DrawUtils;
-import lab1.observer.interfaces.Observer;
+import lab1.observer.Subscriber;
 
-public class Nose implements Observer {
+public class Nose implements Subscriber {
     private Group noseGroup;
     private Circle circle;
     private double x;
@@ -29,7 +29,7 @@ public class Nose implements Observer {
 
     private void drawNose() {
         circle = DrawUtils.drawCircle(x, y, r);
-        circle.setFill(Color.BLUE);
+        circle.setFill(Color.GREEN);
 
         noseGroup.getChildren().add(circle);
     }
@@ -37,9 +37,9 @@ public class Nose implements Observer {
     @Override
     public void update() {
         circle.setFill(
-                circle.getFill() == Color.BLUE
-                        ? Color.RED
-                        : Color.BLUE
+                circle.getFill() == Color.GREEN
+                        ? Color.PURPLE
+                        : Color.GREEN
         );
     }
 

@@ -30,6 +30,7 @@ public class DomStrategy extends AbstractStrategy {
         Element student = (Element) document.getElementsByTagName(StrategyUtils.STUDENT).item(0);
         NodeList subjects = student.getElementsByTagName(StrategyUtils.SUBJECT);
 
+
         return new Student(
                 student.getAttribute(StrategyUtils.LASTNAME),
                 IntStream.range(0, subjects.getLength())

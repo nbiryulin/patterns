@@ -8,7 +8,7 @@ public class StrategyContext {
     }
 
     public void executeStrategy(String inputFileName, String outputFileName) throws Exception {
-        strategy.checkAverageStudent(inputFileName, outputFileName);
+        strategy.execute(inputFileName, outputFileName);
     }
 
 }

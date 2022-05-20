@@ -3,7 +3,7 @@ package lab1.template.Templ;
 
 
 
-public abstract class ThrowShapeAlgorithm {
+public abstract class ThrowAlgorithm {
 
     protected DrawableShape shape = null;
     protected DynamicPaintingPanel panel = null;
@@ -14,7 +14,7 @@ public abstract class ThrowShapeAlgorithm {
     private int x = 0;
     private int y = 0;
 
-    public ThrowShapeAlgorithm(DynamicPaintingPanel panel) {
+    public ThrowAlgorithm(DynamicPaintingPanel panel) {
         this.panel = panel;
     }
 

@@ -6,11 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lab1.observer.DrawUtils;
-import lab1.observer.enums.ENameFigure;
+import lab1.observer.FigureEnum;
 
 public class SmileScene {
     private final Group defaultGroup;
-    private EventManager eventManager = new EventManager();
+    private Publisher publisher = new Publisher();
 
     public SmileScene(Stage primaryStage) {
         defaultGroup = new Group();
@@ -34,7 +34,7 @@ public class SmileScene {
                         return;
                     }
 
-                    eventManager.notify(ENameFigure.fromString(id));
+                    publisher.notify(FigureEnum.fromString(id));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -48,28 +48,28 @@ public class SmileScene {
     }
 
     private void drawMonth() {
-        Mouth mouth = new Mouth(100, 200, 200, ENameFigure.MOUTH.getNameFigure());
+        Mouth mouth = new Mouth(100, 200, 200, FigureEnum.MOUTH.getNameFigure());
         defaultGroup.getChildren().add(mouth.getMouthGroup());
 
-        eventManager.subscribe(ENameFigure.MOUTH, mouth);
+        publisher.subscribe(FigureEnum.MOUTH, mouth);
     }
 
     private void drawNose() {
-        Nose nose = new Nose(150, 150, 25, ENameFigure.NOSE.getNameFigure());
+        Nose nose = new Nose(150, 150, 25, FigureEnum.NOSE.getNameFigure());
         defaultGroup.getChildren()
                 .add(nose.getNoseGroup());
 
-        eventManager.subscribe(ENameFigure.NOSE, nose);
+        publisher.subscribe(FigureEnum.NOSE, nose);
     }
 
     private void drawEyesAndFace() {
         defaultGroup.getChildren().add(DrawUtils.drawCircle(150, 150, 145));
 
-        Eye leftEye = new Eye(90, 100, 50, ENameFigure.LEFT_EYE.getNameFigure());
-        Eye rightEye = new Eye(210, 100, 50, ENameFigure.RIGHT_EYE.getNameFigure());
+        Eye leftEye = new Eye(90, 100, 50, FigureEnum.LEFT_EYE.getNameFigure());
+        Eye rightEye = new Eye(210, 100, 50, FigureEnum.RIGHT_EYE.getNameFigure());
 
-        eventManager.subscribe(ENameFigure.LEFT_EYE, leftEye);
-        eventManager.subscribe(ENameFigure.RIGHT_EYE, rightEye);
+        publisher.subscribe(FigureEnum.LEFT_EYE, leftEye);
+        publisher.subscribe(FigureEnum.RIGHT_EYE, rightEye);
 
         defaultGroup.getChildren().addAll(new Group[]{
                 leftEye.getEyeGroup(),

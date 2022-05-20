@@ -9,7 +9,7 @@ public class DrawUtils {
         circle.setCenterX(x);
         circle.setCenterY(y);
         circle.setRadius(r);
-        circle.setStroke(Color.BLACK);
+        circle.setStroke(Color.RED);
         circle.setFill(Color.WHITE);
 
         return circle;

@@ -4,9 +4,9 @@ package lab1.template.Templ;
 
 public class ThrowShapeThread extends Thread {
 
-    private final ThrowShapeAlgorithm algorithm;
+    private final ThrowAlgorithm algorithm;
 
-    public ThrowShapeThread(ThrowShapeAlgorithm alg) {
+    public ThrowShapeThread(ThrowAlgorithm alg) {
         algorithm = alg;
     }
 

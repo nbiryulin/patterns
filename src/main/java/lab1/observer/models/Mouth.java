@@ -1,11 +1,12 @@
 package lab1.observer.models;
 
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Line;
-import lab1.observer.interfaces.Observer;
+import lab1.observer.Subscriber;
 
-public class Mouth implements Observer {
+public class Mouth implements Subscriber {
     private Group mouthGroup;
 
     private double x1;
@@ -31,7 +32,8 @@ public class Mouth implements Observer {
 
     private void drawMouth() {
         Line line = new Line(x1, y1, x2, y1);
-        line.setStrokeWidth(5);
+        line.setStrokeWidth(15);
+        line.setFill(Color.RED);
         mouthGroup.getChildren().clear();
         mouthGroup.getChildren().add(line);
 
@@ -42,6 +44,8 @@ public class Mouth implements Observer {
     private void drawSmileMouth() {
         mouthGroup.getChildren().clear();
         Arc arc = new Arc((x2+x1)/2.0, y1, 50, 50, 0, -180);
+        arc.setStroke(Color.RED);
+        arc.setFill(Color.RED);
 
         mouthGroup.getChildren().add(arc);
 

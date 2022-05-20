@@ -15,6 +15,7 @@ public class Car implements Transport, Serializable, Cloneable {
     private String mark;
     private Model[] models;
     private Command command;
+    private Memento memento;
 
 
     private static final long serialVersionUID = 1L;
@@ -205,14 +206,26 @@ public class Car implements Transport, Serializable, Cloneable {
         return new CarIterator();
     }
 
+    public Memento createMemento() {
+        return new Memento(this);
+    }
+
+    public void setMemento(Memento memento) {
+        this.memento = memento;
+    }
+
+    public Car restore() throws Exception {
+        return this.memento.getAuto();
+    }
+
     public static class Memento {
-        private byte[] carBytes;
+        private static byte[] carBytes;
 
         public Memento(Car car) {
             setAuto(car);
         }
 
-        public void setAuto(Car car) {
+        public static void setAuto(Car car) {
             try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
                 try (ObjectOutputStream out = new ObjectOutputStream(byteArrayOutputStream)) {
                     out.writeObject(car);
@@ -226,18 +239,19 @@ public class Car implements Transport, Serializable, Cloneable {
             }
         }
 
-        public void getAuto(Car newCar) throws Exception {
+        public static Car getAuto() throws Exception {
             if (carBytes == null) {
                 throw new Exception("");
             }
 
             try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(carBytes)) {
                 try (ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream)) {
-                    newCar.setNewCar((Car) objectInputStream.readObject());
+                    return (Car) objectInputStream.readObject();
                 }
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
+            return null;
         }
     }
 

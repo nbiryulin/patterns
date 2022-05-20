@@ -7,12 +7,12 @@ public class StrategyMain {
             return;
         }
 
-        StrategyContext strategyManager = new StrategyContext();
+        StrategyContext context = new StrategyContext();
 
-        strategyManager.setStrategy(new DomStrategy());
-        strategyManager.executeStrategy(args[0], args[1]);
+        context.setStrategy(new DomStrategy());
+        context.executeStrategy(args[0], args[1]);
 
-        strategyManager.setStrategy(new SaxStrategy());
-        strategyManager.executeStrategy(args[0], args[2]);
+        context.setStrategy(new SaxStrategy());
+        context.executeStrategy(args[0], args[2]);
     }
 }

@@ -4,10 +4,10 @@ import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import lab1.observer.DrawUtils;
-import lab1.observer.interfaces.Observer;
+import lab1.observer.Subscriber;
 
 
-public class Eye implements Observer {
+public class Eye implements Subscriber {
     private Group eyeGroup;
     private double x;
     private double y;
@@ -32,7 +32,6 @@ public class Eye implements Observer {
         eyeGroup.getChildren().clear();
         eyeGroup.getChildren().addAll(new Circle[]{
                 DrawUtils.drawCircle(x, y, r),
-                DrawUtils.drawCircle(x, y, r / 4)
         });
 
         isOpen = true;

@@ -1,6 +1,6 @@
-package lab1.observer.enums;
+package lab1.observer;
 
-public enum ENameFigure {
+public enum FigureEnum {
     LEFT_EYE("left_eye"),
     RIGHT_EYE("right_eye"),
     MOUTH("mouth"),
@@ -9,7 +9,7 @@ public enum ENameFigure {
 
     private String nameFigure;
 
-    ENameFigure(String envUrl) {
+    FigureEnum(String envUrl) {
         this.nameFigure = envUrl;
     }
 
@@ -17,13 +17,12 @@ public enum ENameFigure {
         return nameFigure;
     }
 
-    public static ENameFigure fromString(String text) {
-        for (ENameFigure nameFigure : ENameFigure.values()) {
+    public static FigureEnum fromString(String text) {
+        for (FigureEnum nameFigure : FigureEnum.values()) {
             if (nameFigure.nameFigure.equalsIgnoreCase(text)) {
                 return nameFigure;
             }
         }
-
         return null;
     }
 }

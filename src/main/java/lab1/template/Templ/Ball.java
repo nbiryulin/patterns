@@ -21,7 +21,7 @@ public class Ball implements DrawableShape {
         Graphics2D g2d = (Graphics2D) g;
         Ellipse2D.Double circle = new Ellipse2D.Double(x, y, width, height);
 
-        g2d.setColor(Color.RED);
+        g2d.setColor(Color.CYAN);
         g2d.fill(circle);
     }
 

@@ -1,13 +1,10 @@
 package lab1.template.Templ;
 
-//--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml
-
 import javax.swing.*;
 import java.awt.*;
 
 
 public class AnimationField extends JFrame {
-
 
     private Shape currentFigure = Shape.BALL;
     private DynamicPaintingPanel paintingPanel;
@@ -33,8 +30,6 @@ public class AnimationField extends JFrame {
     }
 
 
-    @SuppressWarnings("unchecked")
-
     private void initComponents() {
 
         figureComboBox = new JComboBox<>();
@@ -53,7 +48,7 @@ public class AnimationField extends JFrame {
             }
         });
 
-        jLabel1.setText("Следующей фигурой для броска будет:");
+        jLabel1.setText("Выбор фигуры");
 
         startButton.setLabel("Пуск");
         startButton.addActionListener(new java.awt.event.ActionListener() {
@@ -149,18 +144,18 @@ public class AnimationField extends JFrame {
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {
         ThrowShapeThread thread = null;
-        ThrowShapeAlgorithm algorithm = null;
+        ThrowAlgorithm algorithm = null;
         switch (currentFigure) {
             case BALL: {
-                algorithm = new ThrowBall(paintingPanel);
+                algorithm = new ThrowBallAlghoritm(paintingPanel);
                 break;
             }
             case SQUARE: {
-                algorithm = new ThrowSquare(paintingPanel);
+                algorithm = new ThrowSquareAlghoritm(paintingPanel);
                 break;
             }
             case STAR: {
-                algorithm = new ThrowStar(paintingPanel);
+                algorithm = new ThrowStarAlghoritm(paintingPanel);
                 break;
             }
             default: {

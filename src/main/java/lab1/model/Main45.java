@@ -24,12 +24,12 @@ public class Main45 {
 
     private static void testMemento() throws Exception {
         Car car = Utils.generateCar();
-        Car.Memento memento = new Car.Memento(car);
+        Car.Memento memento = car.createMemento();
+        car.setMemento(memento);
 
         car.setMark("New Mark");
         System.out.println(car.toString());
 
-        memento.getAuto(car);
-        System.out.println(car.toString());
+        System.out.println(car.restore());
     }
 }
