@@ -8,7 +8,7 @@ import java.util.Iterator;
 public class Main45 {
 
     public static void main(String[] args) throws Exception {
-//        testIterator();
+     //   testIterator();
         testMemento();
     }
 
@@ -27,9 +27,10 @@ public class Main45 {
         Car.Memento memento = car.createMemento();
         car.setMemento(memento);
 
+        System.out.println(car.toString());
         car.setMark("New Mark");
         System.out.println(car.toString());
 
-        System.out.println(car.restore());
+        System.out.println(Car.Memento.getAuto());
     }
 }

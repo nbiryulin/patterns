@@ -214,9 +214,6 @@ public class Car implements Transport, Serializable, Cloneable {
         this.memento = memento;
     }
 
-    public Car restore() throws Exception {
-        return this.memento.getAuto();
-    }
 
     public static class Memento {
         private static byte[] carBytes;
