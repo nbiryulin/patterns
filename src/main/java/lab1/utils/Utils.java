@@ -208,6 +208,7 @@ public class Utils {
 
   public static Moto generateMoto() throws DuplicateModelNameException {
     Moto car = new Moto();
+    car.setMark("mark");
     car.addModel("Model 1", 1.0);
     car.addModel("Model 2", 2.0);
     car.addModel("Model 3", 3.0);
